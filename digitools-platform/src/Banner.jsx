@@ -41,15 +41,12 @@ const HeroBanner = () => {
       <div className="flex-1 mt-12 md:mt-0 flex justify-end relative z-10 w-full">
         <div className="relative w-full max-w-lg aspect-[4/5] md:aspect-auto h-[400px] md:h-[500px]">
           <img 
-            src="../../assets/banner.png" 
+            src="https://raw.githubusercontent.com/maruf-hossain74/Assignment-06-Programming-Hero/main/assets/banner.png" 
             alt="Digital Workflow Interface" 
             className="w-full h-full object-cover rounded-xl"
-          />
+        />
         </div>
       </div>
-
-      {/* Bottom Purple Bar */}
-      <div className="absolute bottom-0 left-0 w-full h-3 bg-[#7c3aed]"></div>
     </section>
   );
 };
