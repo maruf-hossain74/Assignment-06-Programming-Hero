@@ -15,7 +15,7 @@ const HeroBanner = () => {
 
         {/* Heading */}
         <h1 className="text-5xl md:text-6xl font-extrabold text-[#1e293b] leading-[1.15] tracking-tight">
-          Supercharge Your <br /> Digital Workflow
+          Supercharge Your <br /> <span className='text-[#7c3aed]'>Digital Workflow</span>
         </h1>
 
         {/* Description */}
@@ -43,7 +43,7 @@ const HeroBanner = () => {
           <img 
             src="https://raw.githubusercontent.com/maruf-hossain74/Assignment-06-Programming-Hero/main/digitools-platform/assets/banner.png"
             alt="Digital Workflow Interface"
-            className="w-full h-full object-cover rounded-xl"
+            className="w-full h-full object-cover rounded-xl shadow-2xl"
           />
         </div>
       </div>

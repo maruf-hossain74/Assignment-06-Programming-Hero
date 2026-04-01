@@ -5,7 +5,9 @@ import StatsSection from './Stats-section'
 import DigiToolsProducts from './DigiToolsProducts'
 import Pricing from './PricingPlans'
 import Footer from './footer'
+import GetStarted from './GetStarted'
 import '@fortawesome/fontawesome-free/css/all.min.css';
+
 
 function App() {
   const [cart, setCart] = useState([]);
@@ -22,7 +24,6 @@ function App() {
 
   const clearCart = () => {
     setCart([]);
-    alert("Order Processed Successfully!");
   };
 
   return (
@@ -36,6 +37,7 @@ function App() {
         removeFromCart={removeFromCart} 
         clearCart={clearCart} 
       />
+      <GetStarted/>
       <Pricing />
       <Footer />
     </>

@@ -69,7 +69,7 @@ export default function Pricing() {
           Choose the plan that fits your needs. Upgrade or downgrade anytime.
         </p>
         <div className="isolate mx-auto mt-16 grid max-w-md grid-cols-1 gap-3  sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
-          {pricingPlans.map((plan, planIdx) => (
+          {pricingPlans.map((plan) => (
             <div
               key={plan.name}
               className={`flex flex-col justify-between rounded-3xl p-8 ring-1 ring-gray-200 xl:p-10 ${plan.bgColor} ${plan.popular ? 'lg:z-10 ' : ''}`}
@@ -78,7 +78,7 @@ export default function Pricing() {
                 {plan.popular && (
                   <div className="relative">
                     <div className="absolute -top-13 left-1/2 -translate-x-1/2 transform">
-                      <span className="inline-flex items-center rounded-full bg-yellow-100 px-3 py-1 text-sm font-medium text-yellow-800 ring-1 ring-inset ring-yellow-200">
+                      <span className="inline-flex items-center rounded-full bg-yellow-500 px-3 py-1 text-sm font-medium text-yellow-900 ring-1 ring-inset ring-yellow-500">
                         Most Popular
                       </span>
                     </div>

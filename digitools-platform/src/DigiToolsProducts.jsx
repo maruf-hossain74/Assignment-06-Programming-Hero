@@ -1,4 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import '@fortawesome/fontawesome-free/css/all.min.css';
+import { ToastContainer, toast } from 'react-toastify';
+
+const productAdded = () => toast.success("Product Added Successfully!");
+const productDeleted = () => toast.error("Product Deleted Successfully!");
+const orderProcessed = () => toast.info("Order Processed Successfully!");
 
 const DigiToolsProducts = ({ cart, addToCart, removeFromCart, clearCart }) => {
   const [products, setProducts] = useState([]);
@@ -39,7 +45,7 @@ const DigiToolsProducts = ({ cart, addToCart, removeFromCart, clearCart }) => {
         <h2 className="text-4xl font-extrabold text-[#1e293b] mb-4">Premium Digital Tools</h2>
         <div className="inline-flex p-1 bg-gray-50 border border-gray-200 rounded-full mb-10">
           <button 
-            onClick={() => setActiveTab('products')} 
+            onClick={() => {setActiveTab('products')}} 
             className={`px-8 py-2.5 rounded-full text-sm font-semibold transition-all ${activeTab === 'products' ? 'bg-[#7c3aed] text-white' : 'text-gray-500'}`}
           >
             Products
@@ -57,7 +63,7 @@ const DigiToolsProducts = ({ cart, addToCart, removeFromCart, clearCart }) => {
         /* PRODUCT GRID (3 COLUMNS) */
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {products.map((product) => (
-            <div key={product.id} className="relative p-8 border border-gray-100 rounded-2xl shadow-sm hover:shadow-lg transition-all flex flex-col bg-white">
+            <div key={product.id} className="relative p-8 border border-gray-100 rounded-2xl shadow-sm hover:shadow-lg transform transition duration-200 hover:-translate-y-2.5">
               <span className={`absolute top-4 right-4 px-3 py-1 rounded-full text-[10px] font-bold uppercase ${getTagStyles(product.tagType)}`}>
                 {product.tag}
               </span>
@@ -73,16 +79,22 @@ const DigiToolsProducts = ({ cart, addToCart, removeFromCart, clearCart }) => {
                   <li key={i} className="flex items-center text-sm text-gray-600 gap-2"><span className="text-green-500">✓</span> {f}</li>
                 ))}
               </ul>
-              <button 
-                onClick={() => addToCart(product)}
+              <button onClick={() => {
+                  addToCart(product);
+                  productAdded();
+                }}
                 disabled={cart.some(item => item.id === product.id)}
                 className={`w-full py-3 rounded-xl font-bold transition-colors ${
                   cart.some(item => item.id === product.id)
-                    ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
+                    ? 'bg-green-500 text-white cursor-not-allowed'
                     : 'bg-[#7c3aed] hover:bg-[#6d28d9] text-white'
                 }`}
               >
-                {cart.some(item => item.id === product.id) ? 'Added to Cart' : 'Buy Now'}
+                {cart.some(item => item.id === product.id) ? (
+                  <span>
+                    <i className="fa-solid fa-check"></i> Added to Cart
+                  </span>
+                ) : 'Buy Now'}
               </button>
             </div>
           ))}
@@ -103,7 +115,7 @@ const DigiToolsProducts = ({ cart, addToCart, removeFromCart, clearCart }) => {
                     </div>
                   </div>
                   <button 
-                    onClick={() => removeFromCart(item.id)}
+                    onClick={() => {removeFromCart(item.id);productDeleted();}}
                     className="text-red-500 hover:text-red-700 font-medium text-sm"
                   >
                     Remove
@@ -116,7 +128,7 @@ const DigiToolsProducts = ({ cart, addToCart, removeFromCart, clearCart }) => {
                   <span>${totalPrice}</span>
                 </div>
                 <button 
-                  onClick={clearCart}
+                  onClick={() => {clearCart();orderProcessed();}}
                   className="w-full bg-[#7c3aed] text-white py-4 rounded-xl font-bold text-lg"
                 >
                   Proceed To Checkout
