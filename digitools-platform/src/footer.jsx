@@ -3,7 +3,6 @@ import React from 'react';
 const Footer = () => {
   return (
     <footer className="w-full font-sans">
-      {/* Purple CTA Section */}
       <div className="bg-[#7c3aed] py-20 px-4 text-center">
         <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
           Ready To Transform Your Workflow?
