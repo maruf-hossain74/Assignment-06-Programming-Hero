@@ -75,9 +75,14 @@ const DigiToolsProducts = ({ cart, addToCart, removeFromCart, clearCart }) => {
               </ul>
               <button 
                 onClick={() => addToCart(product)}
-                className="w-full bg-[#7c3aed] hover:bg-[#6d28d9] text-white py-3 rounded-xl font-bold transition-colors"
+                disabled={cart.some(item => item.id === product.id)}
+                className={`w-full py-3 rounded-xl font-bold transition-colors ${
+                  cart.some(item => item.id === product.id)
+                    ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
+                    : 'bg-[#7c3aed] hover:bg-[#6d28d9] text-white'
+                }`}
               >
-                Buy Now
+                {cart.some(item => item.id === product.id) ? 'Added to Cart' : 'Buy Now'}
               </button>
             </div>
           ))}

@@ -5,12 +5,12 @@ import StatsSection from './Stats-section'
 import DigiToolsProducts from './DigiToolsProducts'
 import Pricing from './PricingPlans'
 import Footer from './footer'
+import '@fortawesome/fontawesome-free/css/all.min.css';
 
 function App() {
   const [cart, setCart] = useState([]);
 
   const addToCart = (product) => {
-    // Check if already in cart to prevent duplicates (optional)
     if (!cart.find(item => item.id === product.id)) {
       setCart([...cart, product]);
     }

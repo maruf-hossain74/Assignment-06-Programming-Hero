@@ -29,7 +29,7 @@ const Footer = () => {
 
       {/* Main Dark Footer */}
       <div className="bg-[#0f172a] text-gray-400 pt-20 pb-10 px-8 lg:px-24">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-12 mb-16">
           
           {/* Brand Column */}
           <div className="lg:col-span-2">
@@ -71,17 +71,21 @@ const Footer = () => {
               <li><a href="#" className="hover:text-white transition-colors">Community</a></li>
               <li><a href="#" className="hover:text-white transition-colors">Contact</a></li>
             </ul>
-            
-            <div className="flex items-center gap-4">
-              {/* Social Icons - Circle placeholders */}
-              <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center text-[#0f172a] cursor-pointer hover:bg-gray-200">
-                <i className="fab fa-instagram text-sm"></i>
-              </div>
-              <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center text-[#0f172a] cursor-pointer hover:bg-gray-200">
-                <i className="fab fa-facebook-f text-sm"></i>
-              </div>
-              <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center text-[#0f172a] cursor-pointer hover:bg-gray-200">
-                <i className="fab fa-twitter text-sm"></i>
+          </div>
+          <div>
+            {/* Social Icons - Circle placeholders */}
+            <div className="items-center gap-4">
+              <h4 className="text-white font-bold mb-6">Social Links</h4>
+              <div className='flex items-center gap-4'>
+                <div className=" flex items-center gap-4 w-8 h-8 rounded-full bg-white justify-center text-[#0f172a] cursor-pointer hover:bg-gray-200">
+                  <i className="fab fa-instagram text-sm"></i>
+                </div>
+                <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center text-[#0f172a] cursor-pointer hover:bg-gray-200">
+                  <i className="fab fa-facebook-f text-sm"></i>
+                </div>
+                <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center text-[#0f172a] cursor-pointer hover:bg-gray-200">
+                  <i className="fab fa-twitter text-sm"></i>
+                </div>
               </div>
             </div>
           </div>
