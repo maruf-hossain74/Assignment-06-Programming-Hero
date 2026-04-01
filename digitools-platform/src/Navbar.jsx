@@ -1,8 +1,9 @@
 import React from 'react';
 
-const Navbar = () => {
+// Added cartCount as a prop to receive data from App.jsx
+const Navbar = ({ cartCount }) => {
   return (
-    <nav className="flex items-center justify-between px-8 py-4 bg-white border-b border-gray-100 font-sans w-full">
+    <nav className="flex items-center justify-between px-8 py-4 bg-white border-b border-gray-100 font-sans w-full sticky top-0 z-50">
       {/* Logo */}
       <div className="flex items-center">
         <a href="/" className="text-3xl font-bold text-[#7c3aed] tracking-tight">
@@ -31,10 +32,10 @@ const Navbar = () => {
 
       {/* Right Side Actions */}
       <div className="flex items-center space-x-6">
-        {/* Shopping Cart Icon */}
+        {/* Shopping Cart Icon with Badge */}
         <button 
           aria-label="Cart" 
-          className="text-[#475569] hover:text-gray-900 transition-colors"
+          className="relative text-[#475569] hover:text-gray-900 transition-colors p-2"
         >
           <svg 
             xmlns="http://www.w3.org/2000/svg" 
@@ -51,6 +52,13 @@ const Navbar = () => {
             <circle cx="19" cy="21" r="1" />
             <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" />
           </svg>
+          
+          {/* Badge: Only shows if cartCount is greater than 0 */}
+          {cartCount > 0 && (
+            <span className="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-[10px] font-bold leading-none text-white transform translate-x-1/2 -translate-y-1/2 bg-red-500 rounded-full">
+              {cartCount}
+            </span>
+          )}
         </button>
 
         {/* Login Link */}
